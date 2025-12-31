@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Happy New Year Wishes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at top, #ffdd55, #120020);
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+            padding: 30px 20px;
+            max-width: 700px;
+        }
+
+        .glow-ring {
+            position: absolute;
+            inset: -20px;
+            border-radius: 20px;
+            background: conic-gradient(from 90deg,
+                    #ff0080,
+                    #ffdd00,
+                    #00e0ff,
+                    #ff0080);
+            filter: blur(12px);
+            opacity: 0.7;
+            z-index: -2;
+            animation: rotate 7s linear infinite;
+        }
+
+        .card {
+            position: relative;
+            border-radius: 20px;
+            padding: 30px 20px 40px;
+            background: rgba(10, 5, 25, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .title {
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ffdd55, #ff66ff, #66ffff);
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: glowText 2.5s ease-in-out infinite alternate;
+        }
+
+        .year {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px #ffdd55, 0 0 25px #ffdd55;
+        }
+
+        .typewriter-wrapper {
+            margin-top: 10px;
+            min-height: 70px;
+        }
+
+        .typewriter {
+            display: inline-block;
+            border-right: 2px solid #ffdd55;
+            white-space: nowrap;
+            overflow: hidden;
+            font-size: 1.1rem;
+            max-width: 100%;
+            animation: caretBlink 0.7s steps(1) infinite;
+        }
+
+        .sub-text {
+            margin-top: 18px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        /* Floating lights (like small fireworks dots) */
+        .light {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ffdd55;
+            box-shadow: 0 0 10px #ffdd55;
+            animation: floatUp 8s linear infinite;
+            opacity: 0.6;
+        }
+
+        .light:nth-child(1) {
+            left: 10%;
+            animation-duration: 9s;
+            background: #ff66ff;
+        }
+
+        .light:nth-child(2) {
+            left: 25%;
+            animation-duration: 7s;
+            background: #66ffff;
+        }
+
+        .light:nth-child(3) {
+            left: 40%;
+            animation-duration: 10s;
+        }
+
+        .light:nth-child(4) {
+            left: 60%;
+            animation-duration: 8s;
+            background: #ff66ff;
+        }
+
+        .light:nth-child(5) {
+            left: 80%;
+            animation-duration: 11s;
+            background: #66ff99;
+        }
+
+        /* Simple confetti lines */
+        .confetti {
+            position: fixed;
+            top: -10px;
+            width: 4px;
+            height: 14px;
+            border-radius: 2px;
+            background: #ffdd55;
+            opacity: 0.9;
+            animation: fall 4s linear infinite;
+            z-index: -1;
+        }
+
+        .confetti:nth-child(1) {
+            left: 5%;
+            background: #ff66ff;
+            animation-duration: 3.5s;
+        }
+
+        .confetti:nth-child(2) {
+            left: 18%;
+            background: #66ffff;
+        }
+
+        .confetti:nth-child(3) {
+            left: 30%;
+            background: #ffdd55;
+            animation-duration: 4.5s;
+        }
+
+        .confetti:nth-child(4) {
+            left: 45%;
+            background: #66ff99;
+        }
+
+        .confetti:nth-child(5) {
+            left: 55%;
+            background: #ff9966;
+            animation-duration: 3.2s;
+        }
+
+        .confetti:nth-child(6) {
+            left: 68%;
+            background: #ff66ff;
+        }
+
+        .confetti:nth-child(7) {
+            left: 80%;
+            background: #66ffff;
+            animation-duration: 5s;
+        }
+
+        .confetti:nth-child(8) {
+            left: 92%;
+            background: #ffdd55;
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes glowText {
+            from {
+                text-shadow:
+                    0 0 8px rgba(255, 221, 85, 0.7),
+                    0 0 20px rgba(255, 102, 255, 0.6);
+            }
+
+            to {
+                text-shadow:
+                    0 0 18px rgba(255, 221, 85, 1),
+                    0 0 35px rgba(102, 255, 255, 0.9);
+            }
+        }
+
+        @keyframes caretBlink {
+
+            0%,
+            50% {
+                border-color: #ffdd55;
+            }
+
+            50%,
+            100% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100px) scale(0.5);
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-420px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotateZ(0deg);
+            }
+
+            100% {
+                transform: translateY(110vh) rotateZ(360deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 2.1rem;
+            }
+
+            .year {
+                font-size: 1.8rem;
+            }
+
+            .typewriter {
+                font-size: 0.98rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Simple confetti strips -->
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+
+    <div class="container">
+        <div class="glow-ring"></div>
+
+        <div class="card">
+            <!-- Floating lights -->
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+            <span class="light"></span>
+
+            <h1 class="title">Happy New Year</h1>
+            <div class="year">2026</div>
+
+            <div class="typewriter-wrapper">
+                <span id="tw-text" class="typewriter"></span>
+            </div>
+
+            <p class="sub-text">
+                — Coded with love &amp; best wishes By Jadu —
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Yahan apna message likho (multiple lines bhi rakh sakte ho)
+        const messages = [
+            "नया साल लाए खुशियों की बहार",
+            "हर दिल में हो प्यार और अपनापन अपार।",
+            "सपनों की ऊँचाइयों को छूएं आप! ",
+            "दुआ है मेरी, सदा मुस्कुराए आपका संसार।",
+            "2026 में लगातार आगे बढ़ते रहो।",
+            "आपका अपना जादू"
+        ];
+
+        let msgIndex = 0;
+        let charIndex = 0;
+        const speed = 70;          // typing speed
+        const gapBetweenLines = 900; // next line ka delay
+
+        const twElement = document.getElementById("tw-text");
+
+        function typeWriter() {
+            if (charIndex < messages[msgIndex].length) {
+                twElement.textContent += messages[msgIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, speed);
+            } else {
+                setTimeout(() => {
+                    msgIndex++;
+                    if (msgIndex < messages.length) {
+                        twElement.textContent = "";
+                        charIndex = 0;
+                        typeWriter();
+                    }
+                }, gapBetweenLines);
+            }
+        }
+
+        // Start typing
+        typeWriter();
+    </script>
+</body>
+
+</html>
